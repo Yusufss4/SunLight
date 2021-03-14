@@ -11,6 +11,7 @@ namespace ContosoUniversity
         public int PageIndex { get; private set; }
         public int TotalPages { get; private set; }
 
+        //only for test
         public PaginatedList(List<T> items, int count, int pageIndex, int pageSize)
         {
             PageIndex = pageIndex;
