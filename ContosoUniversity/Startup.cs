@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 //using ContosoUniversity.Controller;
+using ContosoUniversity.Hubs;
 
 namespace ContosoUniversity
 {
@@ -32,7 +33,7 @@ namespace ContosoUniversity
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
             });
-
+            services.AddSignalR();
             services.AddRazorPages();
             // .AddNewtonsoftJson();
             services.AddControllers();
@@ -68,6 +69,7 @@ namespace ContosoUniversity
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHub<MessagesHub>("/chatHub");
             });
         }
     }

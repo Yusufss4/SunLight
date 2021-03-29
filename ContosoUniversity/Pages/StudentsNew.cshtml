@@ -1,0 +1,52 @@
+﻿@page
+
+
+@{
+    ViewData["Title"] = "StudentsNew";
+}
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width" />
+<title>Index</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">Employee Information</div>
+            <div class="panel-body">
+                <div>
+                    <table id="tab"></table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Salary</th>
+                                        <th>Department</th>
+                                        <th>Designation</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messagesTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="button" id="sendButton" value="Send Message" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
