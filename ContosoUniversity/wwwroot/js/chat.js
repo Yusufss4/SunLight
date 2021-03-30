@@ -63,7 +63,7 @@ function getAllMessages()  {
             tbl.empty();
             var i = 1;
             $.each(a2, function (key, value) {
-                tbl.append('<tr>' + '<td>' + i + '</td>' + '<td>' + value.id + '</td>' + '<td>' + value.firstMidName + '</td>' + '<td>' + value.enrollmentDate + '</td>' + '<td>' + value.fullName + '</td>' + '</tr>');
+                tbl.append('<tr>' + '<td>' + i + '</td>' + '<td>' + value.id + '</td>' + '<td>' + value.firstMidName + '</td>' + '<td>' + value.createDate + '</td>' + '<td>' + value.fullName + '</td>' + '</tr>');
                 i = i + 1;
             });
         }

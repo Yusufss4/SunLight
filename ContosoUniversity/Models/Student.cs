@@ -7,6 +7,7 @@ namespace ContosoUniversity.Models
 {
     public class Student
     {
+
         public int ID { get; set; }
 
         [Required]
@@ -24,6 +25,11 @@ namespace ContosoUniversity.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
+
+        [Display(Name = "Create Date")]
+        public DateTime CreateDate { get; set; }
+
+
         [Display(Name = "Full Name")]
         public string FullName
         {

@@ -30,7 +30,8 @@ namespace ContosoUniversity.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
-                    EnrollmentDate = table.Column<DateTime>(nullable: false)
+                    EnrollmentDate = table.Column<DateTime>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()")
                 },
                 constraints: table =>
                 {
