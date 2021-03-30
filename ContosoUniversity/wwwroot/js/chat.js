@@ -48,8 +48,8 @@ function getAllMessages() {
     });
 } */
 
-document.getElementById("sendButton").addEventListener("click", function (event) {
-    event.preventDefault();
+function getAllMessages()  {
+   
     console.log("In getAllMessages();");
     var tbl = $('#messagesTable');
     $.ajax({
@@ -68,4 +68,8 @@ document.getElementById("sendButton").addEventListener("click", function (event)
             });
         }
     });
-});
+};
+
+setInterval(function () {
+    getAllMessages();
+}, 1000); //Every 1000ms = 1sec
