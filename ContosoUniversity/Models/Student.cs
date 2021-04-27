@@ -29,6 +29,11 @@ namespace ContosoUniversity.Models
         [Display(Name = "Create Date")]
         public DateTime CreateDate { get; set; }
 
+        [Display(Name = "LDR 1")]
+        public int LDR1 { get; set; }
+
+        [Display(Name = "LDR 2")]
+        public int LDR2 { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName
