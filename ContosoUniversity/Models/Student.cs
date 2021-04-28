@@ -35,6 +35,30 @@ namespace ContosoUniversity.Models
         [Display(Name = "LDR 2")]
         public int LDR2 { get; set; }
 
+        [Display(Name = "LDR 3")]
+        public int LDR3 { get; set; }
+
+        [Display(Name = "LDR 4")]
+        public int LDR4 { get; set; }
+
+        [Display(Name = "LDR 5")]
+        public int LDR5 { get; set; }
+
+        [Display(Name = "Temperature")]
+        public float Temperature
+        {
+            get; set;
+        }
+
+        [Display(Name = "Temp In Celc")]
+        public string TemperatureInCelc
+        {
+            get
+            {
+                return Temperature.ToString("N3") + "°C";
+            }
+        }
+
         [Display(Name = "Full Name")]
         public string FullName
         {

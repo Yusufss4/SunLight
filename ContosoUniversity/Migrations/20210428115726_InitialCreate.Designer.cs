@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20210427112206_LDRs")]
-    partial class LDRs
+    [Migration("20210428115726_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -177,10 +177,22 @@ namespace ContosoUniversity.Migrations
                     b.Property<int>("LDR2")
                         .HasColumnType("int");
 
+                    b.Property<int>("LDR3")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LDR4")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LDR5")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<string>("Temperature")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 

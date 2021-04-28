@@ -175,10 +175,22 @@ namespace ContosoUniversity.Migrations
                     b.Property<int>("LDR2")
                         .HasColumnType("int");
 
+                    b.Property<int>("LDR3")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LDR4")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LDR5")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<float>("Temperature")
+                        .HasColumnType("real");
 
                     b.HasKey("ID");
 

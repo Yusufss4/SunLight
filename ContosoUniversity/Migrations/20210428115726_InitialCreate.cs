@@ -31,7 +31,13 @@ namespace ContosoUniversity.Migrations
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     EnrollmentDate = table.Column<DateTime>(nullable: false),
-                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()")
+                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()"),
+                    LDR1 = table.Column<int>(nullable: false),
+                    LDR2 = table.Column<int>(nullable: false),
+                    LDR3 = table.Column<int>(nullable: false),
+                    LDR4 = table.Column<int>(nullable: false),
+                    LDR5 = table.Column<int>(nullable: false),
+                    Temperature = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
