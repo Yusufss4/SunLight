@@ -14,7 +14,19 @@ function mainTable() {
             console.log(result);
             tbl.empty();
             $.each(result, function (key, value) {
-                tbl.append('<tr>' + '<td>' + i + '</td>' + '<td>' + value.id + '</td>' + '<td>' + value.firstMidName + '</td>' + '<td>' + value.createDate + '</td>' + '<td>' + value.fullName + '</td>' + '</tr>');
+                tbl.append(
+                    '<tr>' +
+                    '<td>' + i + '</td>' +
+                    '<td>' + value.createDate + '</td>' +
+                    '<td>' + value.firstMidName + '</td>' +
+                    '<td>' + value.ldR1 + '</td>' +
+                    '<td>' + value.ldR2 + '</td>' +
+                    '<td>' + value.ldR3 + '</td>' +
+                    '<td>' + value.ldR4 + '</td>' +
+                    '<td>' + value.ldR5 + '</td>' +
+                    '<td>' + value.temperatureInCelc + '</td>'
+                    + '</tr>'
+                );
                 i = i + 1;
             }); updateTable();
         }
@@ -25,7 +37,19 @@ function mainTable() {
         $.getJSON("https://localhost:44335/api/students" + "/" + (i))
             .done(function (value) {
                 console.log("JSON Data: " + value);
-                tbl.append('<tr>' + '<td>' + i + '</td>' + '<td>' + value.id + '</td>' + '<td>' + value.firstMidName + '</td>' + '<td>' + value.createDate + '</td>' + '<td>' + value.fullName + '</td>' + '</tr>');
+                tbl.append(
+                    '<tr>' +
+                    '<td>' + i + '</td>' +
+                    '<td>' + value.createDate + '</td>' +
+                    '<td>' + value.firstMidName + '</td>' +
+                    '<td>' + value.ldR1 + '</td>' +
+                    '<td>' + value.ldR2 + '</td>' +
+                    '<td>' + value.ldR3 + '</td>' +
+                    '<td>' + value.ldR4 + '</td>' +
+                    '<td>' + value.ldR5 + '</td>' +
+                    '<td>' + value.temperatureInCelc + '</td>'
+                    + '</tr>'
+                );
                 i = i + 1;
             })
             .fail(function (jqxhr, textStatus, error) {
