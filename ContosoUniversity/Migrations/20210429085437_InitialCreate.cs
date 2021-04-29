@@ -37,7 +37,7 @@ namespace ContosoUniversity.Migrations
                     LDR3 = table.Column<int>(nullable: false),
                     LDR4 = table.Column<int>(nullable: false),
                     LDR5 = table.Column<int>(nullable: false),
-                    Temperature = table.Column<string>(nullable: true)
+                    Temperature = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {

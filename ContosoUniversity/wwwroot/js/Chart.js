@@ -4,7 +4,9 @@
     var dataPointsLDR3 = [];
     var dataPointsLDR4 = [];
     var dataPointsLDR5 = [];
+    var dataPointsTemperature = [];
     var chart;
+    var TemperatureChart;
     $.getJSON("https://localhost:44335/api/students", function (data) {
         $.each(data, function (key, value) {
             dataPointsLDR1.push({ x: value.id, y: value.ldR1 });
@@ -12,10 +14,11 @@
             dataPointsLDR3.push({ x: value.id, y: value.ldR3 });
             dataPointsLDR4.push({ x: value.id, y: value.ldR4 });
             dataPointsLDR5.push({ x: value.id, y: value.ldR5 });
-
+            dataPointsTemperature.push({ x: value.id, y: value.temperature });
         });
         chart = new CanvasJS.Chart("LDRChartContainer", {
             animationEnabled: true,
+            zoomEnabled: true,
             theme: "light2",
             title: {
                 text: "LDR1-LDR2-LDR3-LDR4-LDR5 Table"
@@ -40,9 +43,6 @@
             },
             legend: {
                 cursor: "pointer",
-                verticalAlign: "bottom",
-                horizontalAlign: "left",
-                dockInsidePlotArea: true,
                 itemclick: toogleDataSeries
             },
             data: [{
@@ -93,7 +93,51 @@
         });
 
 
+        TemperatureChart = new CanvasJS.Chart("TempChartContainer", {
+            animationEnabled: true,
+            zoomEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Temperature Table"
+            },
+            axisX: {
+                //valueFormatString: "DD MMM",
+                title: "Data Point",
+                crosshair: {
+                    enabled: true,
+                    snapToDataPoint: false
+                }
+            },
+            axisY: {
+                title: "Temp °C",
+                suffix: " °C",
+                includeZero: true,
+                crosshair: {
+                    enabled: true
+                }
+            },
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toogleDataSeries
+            },
+            data: [{
+                type: "spline",
+                showInLegend: true,
+                yValueFormatString: "#0.## °C",
+                name: "°C",
+                //markerType: "square",
+                lineDashType: "solid",
+                color: "#DE3163",
+                dataPoints: dataPointsTemperature,
+            },
+            ]
+        });
+
         chart.render();
+        TemperatureChart.render();
         updateChart();
     });
 
@@ -104,6 +148,7 @@
             e.dataSeries.visible = true;
         }
         chart.render();
+        TemperatureChart.render();
     }
 
     function updateChart() {
@@ -124,8 +169,12 @@
             dataPointsLDR5.push({
                 x: value.id, y: value.ldR5
             });
-
+            dataPointsTemperature.push({
+                x: value.id, y: value.temperature
+            });
             chart.render();
+            TemperatureChart.render();
+
             
         });
     }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20210428115726_InitialCreate")]
+    [Migration("20210429085437_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,8 +191,8 @@ namespace ContosoUniversity.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<string>("Temperature")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("Temperature")
+                        .HasColumnType("real");
 
                     b.HasKey("ID");
 
