@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20210629195835_TimeUpdate")]
-    partial class TimeUpdate
+    [Migration("20210629205117_FreshStart4")]
+    partial class FreshStart4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

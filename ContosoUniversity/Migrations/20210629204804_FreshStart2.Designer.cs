@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20210629170326_ColumnFirstName")]
-    partial class ColumnFirstName
+    [Migration("20210629204804_FreshStart2")]
+    partial class FreshStart2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -166,7 +166,7 @@ namespace ContosoUniversity.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("getdate()");
+                        .HasDefaultValueSql("FORMAT(getdate(),'MM/dd/yyyy,hh:mm:ss')");
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");

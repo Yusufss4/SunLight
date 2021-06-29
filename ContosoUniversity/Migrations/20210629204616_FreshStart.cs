@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContosoUniversity.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class FreshStart : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,13 +31,18 @@ namespace ContosoUniversity.Migrations
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     EnrollmentDate = table.Column<DateTime>(nullable: false),
-                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()"),
+                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "FORMAT(getdate(),'MM/dd/yyyyThh:mm:ss')"),
                     LDR1 = table.Column<int>(nullable: false),
                     LDR2 = table.Column<int>(nullable: false),
                     LDR3 = table.Column<int>(nullable: false),
                     LDR4 = table.Column<int>(nullable: false),
                     LDR5 = table.Column<int>(nullable: false),
-                    Temperature = table.Column<float>(nullable: false)
+                    Temperature = table.Column<float>(nullable: false),
+                    Humidity = table.Column<float>(nullable: false),
+                    HeatIndex = table.Column<float>(nullable: false),
+                    AirPressure = table.Column<float>(nullable: false),
+                    Altitude = table.Column<float>(nullable: false),
+                    Lux = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {

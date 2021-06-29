@@ -43,7 +43,7 @@ function mainTable() {
                     '<tr>' +
                     '<td>' + i + '</td>' +
                     '<td>' + value.createDate.substring(0, value.createDate.indexOf('T')) + '</td>' +
-                    '<td>' + value.createDate.substring(value.createDate.indexOf('T') + 1, value.createDate.length) + '</td>' +
+                    '<td>' + value.createDate.substring(value.createDate.indexOf('T') + 1, 19) + '</td>' +
                     '<td>' + ((value.ldR1 + value.ldR2 + value.ldR3 + value.ldR4 + value.ldR5) / 5) + " %" + '</td>' +
                     '<td>' + value.humidity + " %" + '</td>' +
                     '<td>' + value.heatIndex + " °C" + '</td>' +

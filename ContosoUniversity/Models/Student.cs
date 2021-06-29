@@ -27,7 +27,7 @@ namespace ContosoUniversity.Models
         public DateTime EnrollmentDate { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{dd'.'MM'.'yyyy'T'HH:mm:ss}")]
+        //[DisplayFormat(DataFormatString = "{dd'.'MM'.'yyyy'T'HH:mm:ss}")] Date format test
         [Display(Name = "Create Date")]
         public DateTime CreateDate { get; set; }
 
