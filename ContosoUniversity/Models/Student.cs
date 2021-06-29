@@ -26,6 +26,8 @@ namespace ContosoUniversity.Models
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{dd'.'MM'.'yyyy'T'HH:mm:ss}")]
         [Display(Name = "Create Date")]
         public DateTime CreateDate { get; set; }
 
@@ -58,6 +60,40 @@ namespace ContosoUniversity.Models
                 return Temperature.ToString("N3") + "°C";
             }
         }
+
+        [Display(Name = "Humidity")]
+        public float Humidity
+        {
+            get; set;
+        }
+
+        [Display(Name = "Heat Index")]
+        public float HeatIndex
+        {
+            get; set;
+        }
+
+        [Display(Name = "Air Pressure")]
+        public float AirPressure
+        {
+            get; set;
+        }
+
+        [Display(Name = "Altitude")]
+        public float Altitude
+        {
+            get; set;
+        }
+
+        [Display(Name = "Lux")]
+        public float Lux
+        {
+            get; set;
+        }
+
+
+
+
 
         [Display(Name = "Full Name")]
         public string FullName

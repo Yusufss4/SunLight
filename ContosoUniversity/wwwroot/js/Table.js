@@ -14,16 +14,18 @@ function mainTable() {
             console.log(result);
             tbl.empty();
             $.each(result, function (key, value) {
+                //streetaddress.substring(0, streetaddress.indexOf(',')); anyString.length 
                 tbl.append(
                     '<tr>' +
                     '<td>' + i + '</td>' +
-                    '<td>' + value.createDate + '</td>' +
-                    '<td>' + value.firstMidName + '</td>' +
-                    '<td>' + value.ldR1 + '</td>' +
-                    '<td>' + value.ldR2 + '</td>' +
-                    '<td>' + value.ldR3 + '</td>' +
-                    '<td>' + value.ldR4 + '</td>' +
-                    '<td>' + value.ldR5 + '</td>' +
+                    '<td>' + value.createDate.substring(0, value.createDate.indexOf('T')) + '</td>' +
+                    '<td>' + value.createDate.substring(value.createDate.indexOf('T')+1, value.createDate.length) + '</td>' +
+                    '<td>' + ((value.ldR1 + value.ldR2 + value.ldR3 + value.ldR4 + value.ldR5) / 5) + " %" + '</td>' +
+                    '<td>' + value.humidity + " %" + '</td>' +
+                    '<td>' + value.heatIndex + " °C" + '</td>' +
+                    '<td>' + value.airPressure + " Pa" + '</td>' +
+                    '<td>' + value.altitude + " m" + '</td>' +
+                    '<td>' + value.lux + " lx" + '</td>' +
                     '<td>' + value.temperatureInCelc + '</td>'
                     + '</tr>'
                 );
@@ -40,13 +42,14 @@ function mainTable() {
                 tbl.append(
                     '<tr>' +
                     '<td>' + i + '</td>' +
-                    '<td>' + value.createDate + '</td>' +
-                    '<td>' + value.firstMidName + '</td>' +
-                    '<td>' + value.ldR1 + '</td>' +
-                    '<td>' + value.ldR2 + '</td>' +
-                    '<td>' + value.ldR3 + '</td>' +
-                    '<td>' + value.ldR4 + '</td>' +
-                    '<td>' + value.ldR5 + '</td>' +
+                    '<td>' + value.createDate.substring(0, value.createDate.indexOf('T')) + '</td>' +
+                    '<td>' + value.createDate.substring(value.createDate.indexOf('T') + 1, value.createDate.length) + '</td>' +
+                    '<td>' + ((value.ldR1 + value.ldR2 + value.ldR3 + value.ldR4 + value.ldR5) / 5) + " %" + '</td>' +
+                    '<td>' + value.humidity + " %" + '</td>' +
+                    '<td>' + value.heatIndex + " °C" + '</td>' +
+                    '<td>' + value.airPressure + " Pa" + '</td>' +
+                    '<td>' + value.altitude + " m" + '</td>' +
+                    '<td>' + value.lux + " lx" + '</td>' +
                     '<td>' + value.temperatureInCelc + '</td>'
                     + '</tr>'
                 );
