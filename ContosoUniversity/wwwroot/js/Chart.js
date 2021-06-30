@@ -5,8 +5,14 @@
     var dataPointsLDR4 = [];
     var dataPointsLDR5 = [];
     var dataPointsTemperature = [];
-    var chart;
+    var dataPointsLux = [];
+    var dataPointsHeatIndex = [];
+    var LDRChart;
     var TemperatureChart;
+    var LuxChart;
+    var HeatIndexChart;
+    //new Date(value.createDate)
+
     $.getJSON("https://localhost:44335/api/students", function (data) {
         $.each(data, function (key, value) {
             dataPointsLDR1.push({ x: value.id, y: value.ldR1 });
@@ -15,8 +21,11 @@
             dataPointsLDR4.push({ x: value.id, y: value.ldR4 });
             dataPointsLDR5.push({ x: value.id, y: value.ldR5 });
             dataPointsTemperature.push({ x: value.id, y: value.temperature });
+            dataPointsLux.push({ x: value.id, y: value.lux });
+            dataPointsHeatIndex.push({ x: value.id, y: value.heatIndex });
+
         });
-        chart = new CanvasJS.Chart("LDRChartContainer", {
+        LDRChart = new CanvasJS.Chart("LDRChartContainer", {
             animationEnabled: true,
             zoomEnabled: true,
             theme: "light2",
@@ -101,7 +110,7 @@
                 text: "Temperature Table"
             },
             axisX: {
-                //valueFormatString: "DD MMM",
+                //valueFormatString: "DD MMM hh:mm:ss",
                 title: "Data Point",
                 crosshair: {
                     enabled: true,
@@ -136,8 +145,98 @@
             ]
         });
 
-        chart.render();
+
+        LuxChart = new CanvasJS.Chart("LuxChartContainer", {
+            animationEnabled: true,
+            zoomEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Lux Table"
+            },
+            axisX: {
+                //valueFormatString: "DD MMM",
+                title: "Data Point",
+                crosshair: {
+                    enabled: true,
+                    snapToDataPoint: false
+                }
+            },
+            axisY: {
+                title: "Lux lx",
+                suffix: " lx",
+                includeZero: true,
+                crosshair: {
+                    enabled: true
+                }
+            },
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toogleDataSeries
+            },
+            data: [{
+                type: "spline",
+                showInLegend: true,
+                yValueFormatString: "#0.## lx",
+                name: "lx",
+                //markerType: "square",
+                lineDashType: "solid",
+                color: "#ff8c00",
+                dataPoints: dataPointsLux,
+            },
+            ]
+        });
+
+        HeatIndexChart = new CanvasJS.Chart("HeatIndexChartContainer", {
+            animationEnabled: true,
+            zoomEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Heat Index Table"
+            },
+            axisX: {
+                //valueFormatString: "DD MMM hh:mm:ss",
+                title: "Data Point",
+                crosshair: {
+                    enabled: true,
+                    snapToDataPoint: false
+                }
+            },
+            axisY: {
+                title: "Heat Index °C",
+                suffix: " °C",
+                includeZero: true,
+                crosshair: {
+                    enabled: true
+                }
+            },
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toogleDataSeries
+            },
+            data: [{
+                type: "spline",
+                showInLegend: true,
+                yValueFormatString: "#0.## °C",
+                name: "°C",
+                //markerType: "square",
+                lineDashType: "solid",
+                color: "#ffdd00",
+                dataPoints: dataPointsHeatIndex,
+            },
+            ]
+        });
+
+
+        LDRChart.render();
         TemperatureChart.render();
+        LuxChart.render();
+        HeatIndexChart.render();
         updateChart();
     });
 
@@ -147,8 +246,10 @@
         } else {
             e.dataSeries.visible = true;
         }
-        chart.render();
+        LDRChart.render();
         TemperatureChart.render();
+        LuxChart.render();
+        HeatIndexChart.render();
     }
 
     function updateChart() {
@@ -172,9 +273,18 @@
             dataPointsTemperature.push({
                 x: value.id, y: value.temperature
             });
-            chart.render();
-            TemperatureChart.render();
+            dataPointsLux.push({
+                x: value.id, y: value.lux
+            });
+            dataPointsHeatIndex.push({
+                x: value.id, y: value.heatIndex
+            });
 
+
+            LDRChart.render();
+            TemperatureChart.render();
+            LuxChart.render();
+            HeatIndexChart.render();
             
         });
     }

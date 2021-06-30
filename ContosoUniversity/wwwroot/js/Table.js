@@ -5,6 +5,10 @@ function mainTable() {
     var i = 1;
     console.log("In windowonload");
 
+    function roundToTwo(num) {
+        return num.toFixed(2);
+    }
+
     $.ajax({
         url: '/api/students',
         contentType: 'application/html ; charset:utf-8',
@@ -19,14 +23,14 @@ function mainTable() {
                     '<tr>' +
                     '<td>' + i + '</td>' +
                     '<td>' + value.createDate.substring(0, value.createDate.indexOf('T')) + '</td>' +
-                    '<td>' + value.createDate.substring(value.createDate.indexOf('T')+1, value.createDate.length) + '</td>' +
+                    '<td>' + value.createDate.substring(value.createDate.indexOf('T') + 1, 19) + '</td>' +
                     '<td>' + ((value.ldR1 + value.ldR2 + value.ldR3 + value.ldR4 + value.ldR5) / 5) + " %" + '</td>' +
-                    '<td>' + value.humidity + " %" + '</td>' +
-                    '<td>' + value.heatIndex + " °C" + '</td>' +
-                    '<td>' + value.airPressure + " Pa" + '</td>' +
-                    '<td>' + value.altitude + " m" + '</td>' +
-                    '<td>' + value.lux + " lx" + '</td>' +
-                    '<td>' + value.temperatureInCelc + '</td>'
+                    '<td>' + roundToTwo(value.humidity) + " %" + '</td>' +
+                    '<td>' + roundToTwo(value.heatIndex) + " °C" + '</td>' +
+                    '<td>' + roundToTwo(value.airPressure) + " Pa" + '</td>' +
+                    '<td>' + roundToTwo(value.altitude) + " m" + '</td>' +
+                    '<td>' + roundToTwo(value.lux) + " lx" + '</td>' +
+                    '<td>' + roundToTwo(value.temperature) + " °C" + '</td>'
                     + '</tr>'
                 );
                 i = i + 1;
@@ -45,12 +49,12 @@ function mainTable() {
                     '<td>' + value.createDate.substring(0, value.createDate.indexOf('T')) + '</td>' +
                     '<td>' + value.createDate.substring(value.createDate.indexOf('T') + 1, 19) + '</td>' +
                     '<td>' + ((value.ldR1 + value.ldR2 + value.ldR3 + value.ldR4 + value.ldR5) / 5) + " %" + '</td>' +
-                    '<td>' + value.humidity + " %" + '</td>' +
-                    '<td>' + value.heatIndex + " °C" + '</td>' +
-                    '<td>' + value.airPressure + " Pa" + '</td>' +
-                    '<td>' + value.altitude + " m" + '</td>' +
-                    '<td>' + value.lux + " lx" + '</td>' +
-                    '<td>' + value.temperatureInCelc + '</td>'
+                    '<td>' + roundToTwo(value.humidity) + " %" + '</td>' +
+                    '<td>' + roundToTwo(value.heatIndex) + " °C" + '</td>' +
+                    '<td>' + roundToTwo(value.airPressure) + " Pa" + '</td>' +
+                    '<td>' + roundToTwo(value.altitude) + " m" + '</td>' +
+                    '<td>' + roundToTwo(value.lux) + " lx" + '</td>' +
+                    '<td>' + roundToTwo(value.temperature) + " °C" + '</td>'
                     + '</tr>'
                 );
                 i = i + 1;
