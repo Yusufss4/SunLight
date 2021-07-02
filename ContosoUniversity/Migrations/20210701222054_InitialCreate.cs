@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContosoUniversity.Migrations
 {
-    public partial class FreshStart : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace ContosoUniversity.Migrations
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     EnrollmentDate = table.Column<DateTime>(nullable: false),
-                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "FORMAT(getdate(),'MM/dd/yyyyThh:mm:ss')"),
+                    CreateDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()"),
                     LDR1 = table.Column<int>(nullable: false),
                     LDR2 = table.Column<int>(nullable: false),
                     LDR3 = table.Column<int>(nullable: false),
